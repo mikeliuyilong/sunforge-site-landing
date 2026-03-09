@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SunForge · Precision Yard</title>
+<style>
+ body { margin:0; font-family:'Space Mono','Inter',monospace; background:#020305; color:#f2f5ff; }
+ nav { position:fixed; right:20px; top:50%; transform:translateY(-50%); display:flex; flex-direction:column; gap:12px; }
+ nav a { color:#8891ff; text-decoration:none; font-size:0.8rem; letter-spacing:0.2em; }
+ header { height:100vh; background:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1400&q=60') center/cover fixed; display:flex; align-items:flex-end; padding:60px; }
+ header h1 { font-size:4rem; margin:0; }
+ section { padding:90px 8%; border-bottom:1px solid rgba(255,255,255,0.05); }
+ .grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap:20px; }
+ .grid div { background:rgba(255,255,255,0.03); padding:20px; border-radius:18px; border:1px solid rgba(255,255,255,0.05); }
+</style>
+</head>
+<body>
+<nav>
+  <a href="#casting">CAST</a>
+  <a href="#forging">FORGE</a>
+  <a href="#machining">MACHINE</a>
+  <a href="#fastener">FASTEN</a>
+  <a href="#special">SPECIAL</a>
+  <a href="#coat">COAT</a>
+</nav>
+<header>
+  <h1>Precision Yard.</h1>
+</header>
+<section id="casting"><h2>Casting</h2><p>Molten metal streams, tooling, quick change.</p></section>
+<section id="forging"><h2>Forging</h2><p>Presses, heat treat, heavy parts.</p></section>
+<section id="machining"><h2>Machining</h2><div class="grid"><div>5-axis</div><div>CNC cells</div><div>CMM</div></div></section>
+<section id="fastener"><h2>Fastener</h2><p>Boutique kits + packaging.</p></section>
+<section id="special"><h2>Special Process</h2><p>NDT, shot-peen, anodize.</p></section>
+<section id="coat"><h2>Coating</h2><p>Powder, e-coat, wet paint.</p></section>
+</body>
+</html>

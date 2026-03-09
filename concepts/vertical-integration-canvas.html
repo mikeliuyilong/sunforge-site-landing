@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>SunForge · Vertical Integration Canvas</title>
+<style>
+ body { margin:0; font-family:'Poppins','Inter',sans-serif; background:#fffdf7; color:#221b12; }
+ .canvas { padding:100px 8%; display:grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap:24px; }
+ .tile { border-radius:34px; padding:24px; background:#fff; box-shadow:0 30px 70px rgba(34,27,18,0.08); position:relative; }
+ .tile img { width:100%; border-radius:28px; margin-bottom:16px; }
+ .tile h2 { margin:0 0 10px; font-size:1.3rem; }
+ .hero { padding:40px 8% 0; }
+ .hero h1 { font-size:3.1rem; margin-bottom:12px; font-weight:600; }
+ .hero p { max-width:640px; color:#6b5c4a; }
+</style>
+</head>
+<body>
+<div class="hero">
+  <h1>Vertical Integration Canvas.</h1>
+  <p>Swipe through casting, forging, machining, fastener, special process, coating—each tile a live factory.</p>
+</div>
+<div class="canvas">
+  <div class="tile">
+    <img src="https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=900&q=60" alt="casting" />
+    <h2>Casting</h2>
+    <p>Tooling + molten control.</p>
+  </div>
+  <div class="tile">
+    <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=60" alt="forging" />
+    <h2>Forging</h2>
+    <p>Press + heat treat.</p>
+  </div>
+  <div class="tile">
+    <img src="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=900&q=60" alt="machining" />
+    <h2>Machining</h2>
+    <p>5-axis automation.</p>
+  </div>
+  <div class="tile">
+    <img src="https://images.unsplash.com/photo-1505739775417-85f78f1c1ecf?auto=format&fit=crop&w=900&q=60" alt="fasteners" />
+    <h2>Fasteners</h2>
+    <p>Kits + documentation.</p>
+  </div>
+  <div class="tile">
+    <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=900&q=60" alt="special" />
+    <h2>Special Process</h2>
+    <p>NDT, shot-peen, plating.</p>
+  </div>
+  <div class="tile">
+    <img src="https://images.unsplash.com/photo-1509927082102-30c0b866f15c?auto=format&fit=crop&w=900&q=60" alt="coat" />
+    <h2>Coating</h2>
+    <p>Powder + custom textures.</p>
+  </div>
+</div>
+</body>
+</html>
