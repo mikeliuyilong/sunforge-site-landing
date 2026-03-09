@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SunForge MFG Networks</title>
+  <style>
+    :root {
+      --yellow: #e8b400;
+      --navy: #1a1f2b;
+      --slate: #3d4250;
+      --light: #f7f7f7;
+      --accent: #ffdb4d;
+      --font-title: "Manrope", "Inter", sans-serif;
+      --font-body: "Inter", "Helvetica Neue", sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--font-body);
+      color: #273043;
+      background: #fff;
+      line-height: 1.6;
+    }
+    header {
+      background: var(--navy);
+      color: #fff;
+      padding: 24px 6%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    header .logo {
+      font-family: var(--font-title);
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 24px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .hero {
+      background: linear-gradient(120deg, #10131b 0%, #203147 100%);
+      color: #fff;
+      padding: 120px 6% 90px;
+    }
+    .hero h1 {
+      font-size: clamp(2.6rem, 4vw, 3.6rem);
+      font-family: var(--font-title);
+      margin-bottom: 24px;
+    }
+    .hero p {
+      max-width: 680px;
+      margin-bottom: 32px;
+      font-size: 1.1rem;
+    }
+    .cta-group button {
+      border: none;
+      padding: 14px 28px;
+      margin-right: 16px;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: opacity .2s ease;
+    }
+    .cta-primary { background: var(--yellow); color: #111; font-weight: 600; }
+    .cta-secondary { background: transparent; border: 1px solid #fff; color: #fff; }
+    section {
+      padding: 90px 6%;
+    }
+    .section-heading {
+      font-family: var(--font-title);
+      font-size: 2rem;
+      margin-bottom: 18px;
+      color: var(--navy);
+    }
+    .section-sub {
+      color: #5d6276;
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .grid {
+      display: grid;
+      gap: 28px;
+    }
+    .grid.three { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+    .grid.four { grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+    .card {
+      background: #fff;
+      border: 1px solid #e8eaef;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+    }
+    .card h3 {
+      font-family: var(--font-title);
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      color: var(--slate);
+    }
+    .alt-bg { background: var(--light); }
+    .process-steps { counter-reset: step; }
+    .process-steps li {
+      list-style: none;
+      margin-bottom: 32px;
+      padding-left: 48px;
+      position: relative;
+    }
+    .process-steps li::before {
+      counter-increment: step;
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 1.2rem;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--yellow);
+      color: #111;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+    footer {
+      background: var(--navy);
+      color: #fff;
+      padding: 50px 6%;
+      text-align: center;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav { margin-top: 18px; }
+      nav a { display: inline-block; margin: 8px 16px 0 0; }
+      .cta-group button { margin-bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">SunForge MFG Networks</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#industries">Industries</a>
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <h1>Trusted manufacturing partners for new energy and advanced hardware.</h1>
+    <p>We align vetted factories, multilingual project owners, and complete manufacturing workflows so you can launch faster—from prototypes to reliable production.</p>
+    <div class="cta-group">
+      <button class="cta-primary">Schedule a Call</button>
+      <button class="cta-secondary">Download Overview</button>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-heading">Why Teams Choose SunForge</h2>
+    <p class="section-sub">From idea to shipment, we combine engineering support with supplier accountability.</p>
+    <div class="grid three">
+      <div class="card">
+        <h3>Prototype to Production</h3>
+        <p>We coordinate tooling, approvals, and supplier readiness to de-risk every ramp.</p>
+      </div>
+      <div class="card">
+        <h3>Culturally Fluent Team</h3>
+        <p>Multilingual program managers keep communication tight between you and partner factories.</p>
+      </div>
+      <div class="card">
+        <h3>Quality & Reliability</h3>
+        <p>Audited partners, process documentation, and delivery tracking keep shipments on schedule.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries" class="alt-bg">
+    <h2 class="section-heading">Industries We Support</h2>
+    <p class="section-sub">We partner with clean-energy brands and high-precision hardware teams.</p>
+    <div class="grid four">
+      <div class="card">
+        <h3>Renewable Energy</h3>
+        <p>Solar, wind, and energy-storage programs rely on our precision metal manufacturing, finishing, and assembly. Launch timelines stay on track from pilot to scale.</p>
+      </div>
+      <div class="card">
+        <h3>Automotive & e-Mobility</h3>
+        <p>Structural, drivetrain, and charging hardware with Tier 1/2 collaboration, traceability, and PPAP-ready documentation baked in.</p>
+      </div>
+      <div class="card">
+        <h3>End-Customer Product Brands</h3>
+        <p>Premium enclosures, hardware kits, and ready-to-ship packaging for consumer/prosumer products, with flexible capacity for seasonal demand.</p>
+      </div>
+      <div class="card">
+        <h3>High-Precision & Emerging Tech</h3>
+        <p>Robotics, aerospace, and instrumentation teams tap our casting, forging, and machining partners for tight-tolerance builds and fast engineering feedback.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <h2 class="section-heading">Capabilities & Services</h2>
+    <p class="section-sub">One network, complete production coverage.</p>
+    <div class="grid three">
+      <div class="card">
+        <h3>Manufacturing</h3>
+        <p>Metal casting, forging, CNC machining, stamping, plus finishing and coatings.</p>
+      </div>
+      <div class="card">
+        <h3>Assembly & Packaging</h3>
+        <p>Hardware kits, sub-assemblies, and retail-ready packaging with QC checkpoints.</p>
+      </div>
+      <div class="card">
+        <h3>Program Management</h3>
+        <p>Supplier onboarding, audits, compliance documentation, and bilingual coordination.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" class="alt-bg">
+    <h2 class="section-heading">How We Work</h2>
+    <ol class="process-steps">
+      <li>
+        <h3>Discover & Align</h3>
+        <p>Requirements, regulatory needs, and timelines captured with your product and operations teams.</p>
+      </li>
+      <li>
+        <h3>Activate the Network</h3>
+        <p>We brief the right partners, align tooling plans, and validate samples with continuous feedback.</p>
+      </li>
+      <li>
+        <h3>Launch & Scale</h3>
+        <p>Quality checkpoints, documentation, and shipping schedules ensure predictable production.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="about">
+    <h2 class="section-heading">About SunForge</h2>
+    <p class="section-sub">SunForge MFG Networks brings together a trusted alliance of specialized factories covering casting, forging, machining, stamping, and hardware. We integrate coatings, assembly, packaging, and delivery to provide a true one-stop manufacturing experience.</p>
+  </section>
+
+  <section id="contact" class="alt-bg">
+    <h2 class="section-heading">Ready to build faster?</h2>
+    <p class="section-sub">Tell us about your program and we’ll align the right manufacturing partners.</p>
+    <div class="cta-group">
+      <button class="cta-primary">Talk to Us</button>
+      <button class="cta-secondary">hello@sunforge-mfg.com</button>
+    </div>
+  </section>
+
+  <footer>
+    © <span id="year"></span> SunForge MFG Networks · <a href="mailto:hello@sunforge-mfg.com">hello@sunforge-mfg.com</a>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
