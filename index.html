@@ -3,341 +3,272 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>SunForge MFG Networks</title>
+  <title>SunForge — Manufacturing Collective</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --yellow: #f4c542;
-      --navy: #050914;
-      --navy-light: #0f1d35;
-      --text: #e8edf7;
-      --muted: rgba(232, 237, 247, 0.72);
-      --card-bg: rgba(11, 17, 33, 0.85);
-      --card-border: rgba(255, 255, 255, 0.07);
-      --radius: 18px;
-      --blur: blur(30px);
-      --shadow: 0 35px 80px rgba(5, 9, 20, 0.55);
+      --cream: #fdf6ee;
+      --sand: #f6eadc;
+      --dark: #1f1414;
+      --accent: #ffb347;
+      --accent-dark: #ed6f4a;
+      --mint: #c7f2da;
+      --violet: #b4a5ff;
+      --card-shadow: 0 25px 60px rgba(31,20,20,0.08);
+      --radius-large: 32px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Inter', 'Space Grotesk', system-ui, -apple-system, sans-serif;
-      background: var(--navy);
-      color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
-    }
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      background-image: radial-gradient(circle at 20% 20%, rgba(244,197,66,0.25), transparent 55%),
-        radial-gradient(circle at 80% 0%, rgba(59,130,246,0.18), transparent 45%),
-        url('https://images.unsplash.com/photo-1517430816045-df4b7de11d1d?auto=format&fit=crop&w=2000&q=60');
-      background-size: cover;
-      background-position: center;
-      opacity: 0.25;
-      z-index: -2;
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.7;
     }
     header {
+      padding: 32px 6% 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       position: sticky;
       top: 0;
+      z-index: 10;
       backdrop-filter: blur(18px);
-      background: rgba(5, 9, 20, 0.85);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-      padding: 24px 6%;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      z-index: 5;
+      background: rgba(253, 246, 238, 0.9);
     }
     .logo {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 600;
-      font-size: 1.25rem;
-      letter-spacing: 0.04em;
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
     }
     nav a {
-      color: var(--muted);
       text-decoration: none;
-      margin-left: 20px;
-      font-size: .95rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      transition: color .2s ease;
-    }
-    nav a:hover { color: var(--yellow); }
-    section { padding: 110px 6%; }
-    .hero {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 28px;
-      position: relative;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(130deg, rgba(5,9,20,0.85) 0%, rgba(5,9,20,0.2) 60%, rgba(255,255,255,0) 100%);
-      z-index: -1;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .9rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
-      animation: fadeUp .7s ease;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 42px;
-      height: 1px;
-      background: var(--muted);
-    }
-    h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: clamp(2.8rem, 5vw, 4.6rem);
-      font-weight: 600;
-      line-height: 1.15;
-      max-width: 900px;
-      animation: fadeUp .8s ease forwards;
-    }
-    .hero p {
-      max-width: 640px;
-      color: rgba(232,237,247,0.85);
-      font-size: 1.1rem;
-      animation: fadeUp .9s ease forwards;
-    }
-    .cta-group { display: flex; flex-wrap: wrap; gap: 18px; }
-    .cta-group button {
-      border: none;
-      padding: 16px 34px;
-      border-radius: 999px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .cta-primary {
-      background: var(--yellow);
-      color: #1c1404;
-      box-shadow: 0 20px 40px rgba(244,197,66,0.35);
-    }
-    .cta-secondary {
-      background: transparent;
-      border: 1px solid rgba(255,255,255,0.4);
-      color: var(--text);
-    }
-    .cta-group button:hover { transform: translateY(-4px); }
-    .section-heading {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 2.2rem;
-      margin-bottom: 12px;
-    }
-    .section-sub {
-      color: rgba(232,237,247,0.8);
-      max-width: 620px;
-      margin-bottom: 48px;
-    }
-    .grid {
-      display: grid;
-      gap: 28px;
-    }
-    .grid.three { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-    .grid.four { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
-    .card {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 30px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(20px);
-      transition: transform .25s ease, border-color .25s ease;
-    }
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: rgba(244,197,66,0.4);
-    }
-    .card h3 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      color: #fff;
-    }
-    .alt-bg { position: relative; }
-    .alt-bg::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(130deg, rgba(255,255,255,0.04), rgba(5,9,20,0));
-      z-index: -1;
-    }
-    .process-steps { counter-reset: step; display: grid; gap: 28px; }
-    .process-steps .card { position: relative; padding-left: 72px; }
-    .process-steps .card::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      left: 24px;
-      top: 28px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(244,197,66,0.2);
-      color: var(--yellow);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 600;
-    }
-    footer {
-      padding: 60px 6%;
-      text-align: center;
-      color: rgba(232,237,247,0.75);
+      color: rgba(31,20,20,0.7);
+      margin-left: 22px;
       font-size: 0.95rem;
     }
-    a { color: var(--yellow); text-decoration: none; }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    nav a:hover { color: var(--accent-dark); }
+    section { padding: 100px 6%; }
+    .hero {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 50px;
+      align-items: center;
     }
-    @media (max-width: 720px) {
+    .hero-visual {
+      position: relative;
+      min-height: 320px;
+    }
+    .hero-visual .orb {
+      position: absolute;
+      inset: 0;
+      border-radius: 45% 55% 52% 48% / 60% 40% 60% 40%;
+      background: radial-gradient(circle at 30% 20%, var(--accent), transparent 60%),
+        radial-gradient(circle at 70% 80%, var(--accent-dark), transparent 55%),
+        linear-gradient(135deg, #ffe2c5, #ffd3f1);
+      box-shadow: 0 35px 80px rgba(237, 111, 74, 0.4);
+      animation: float 6s ease-in-out infinite;
+    }
+    .hero-visual .chip {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      border-radius: 32px;
+      background: #fff;
+      box-shadow: var(--card-shadow);
+      padding: 18px;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .chip.c1 { top: -30px; right: -20px; }
+    .chip.c2 { bottom: -20px; left: -10px; }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2.6rem, 4vw, 4rem);
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+    .hero p { max-width: 520px; margin-bottom: 32px; }
+    .cta-group { display: flex; gap: 18px; flex-wrap: wrap; }
+    .cta {
+      border: none;
+      border-radius: 999px;
+      padding: 15px 30px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: transform .2s ease;
+    }
+    .cta-primary { background: var(--accent-dark); color: #fff; }
+    .cta-secondary { background: transparent; border: 1px solid var(--dark); }
+    .cta:hover { transform: translateY(-3px); }
+    .pill { text-transform: uppercase; letter-spacing: 0.4em; font-size: 0.85rem; color: rgba(31,20,20,0.6); display: inline-flex; gap: 8px; align-items: center; margin-bottom: 18px; }
+    .pill::before { content: ""; width: 36px; height: 1px; background: rgba(31,20,20,0.5); }
+    .grid { display: grid; gap: 28px; }
+    .grid.three { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+    .feature-card {
+      background: #fff;
+      border-radius: var(--radius-large);
+      padding: 32px;
+      box-shadow: var(--card-shadow);
+      position: relative;
+    }
+    .feature-card::after {
+      content: "";
+      position: absolute;
+      inset: 16px;
+      border-radius: var(--radius-large);
+      border: 1px dashed rgba(31,20,20,0.08);
+      pointer-events: none;
+    }
+    .feature-card h3 { font-family: 'Fraunces', serif; font-size: 1.3rem; margin-bottom: 12px; }
+    .industries {
+      background: linear-gradient(135deg, #fff7e9, #fef0ff);
+      border-radius: 40px;
+      padding: 70px;
+      box-shadow: 0 35px 80px rgba(31,20,20,0.12);
+    }
+    .industry-list { display: grid; gap: 18px; }
+    .industry-item {
+      background: rgba(255,255,255,0.8);
+      border-radius: 30px;
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .industry-item span { font-size: 0.85rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(31,20,20,0.5); }
+    .industry-item strong { font-family: 'Fraunces', serif; font-size: 1.2rem; }
+    .contact {
+      background: #fff;
+      border-radius: 32px;
+      padding: 60px;
+      box-shadow: var(--card-shadow);
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    footer { text-align: center; padding: 30px; color: rgba(31,20,20,0.6); }
+    @keyframes float { 0% { transform: translateY(0); } 50% { transform: translateY(-12px); } 100% { transform: translateY(0); } }
+    @media (max-width: 768px) {
       header { flex-direction: column; align-items: flex-start; gap: 12px; }
-      nav { display: flex; flex-wrap: wrap; }
-      nav a { margin: 0 16px 10px 0; }
-      .process-steps .card { padding-left: 30px; }
-      .process-steps .card::before { left: -6px; }
+      .hero { grid-template-columns: 1fr; }
+      .industries { padding: 40px; }
+      .contact { padding: 40px 24px; }
     }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo">SunForge MFG Networks</div>
+    <div class="logo">SunForge Collective</div>
     <nav>
-      <a href="#home">Home</a>
+      <a href="#home">Work</a>
       <a href="#industries">Industries</a>
-      <a href="#services">Services</a>
-      <a href="#process">Process</a>
-      <a href="#about">About</a>
+      <a href="#services">Capabilities</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <section class="hero" id="home">
-    <div class="eyebrow">Precision Supply Network</div>
-    <h1>Launch new energy hardware with trusted factories, fluent coordinators, and production-grade discipline.</h1>
-    <p>SunForge synchronizes vetted partners across casting, machining, stamping, coatings, and logistics so your product teams can go from prototype to dependable volume—without losing pace or quality.</p>
-    <div class="cta-group">
-      <button class="cta-primary">Schedule a Call</button>
-      <button class="cta-secondary">Download Overview</button>
-    </div>
-  </section>
-
-  <section>
-    <h2 class="section-heading">Why Teams Choose SunForge</h2>
-    <p class="section-sub">From engineering support to bilingual supplier management, we bring clarity and accountability to complex metal manufacturing programs.</p>
-    <div class="grid three">
-      <div class="card">
-        <h3>Prototype → Production</h3>
-        <p>Structured ramps, tooling hand-offs, and PPAP-ready documentation for every phase.</p>
-      </div>
-      <div class="card">
-        <h3>Multilingual Ops</h3>
-        <p>Program owners fluent in English, Mandarin, and supplier workflows keep conversations precise.</p>
-      </div>
-      <div class="card">
-        <h3>Quality Intelligence</h3>
-        <p>Audited partners, digital runbooks, and shipment tracking give you real-time assurance.</p>
+    <div>
+      <div class="pill">Manufacturing alliance</div>
+      <h1>Metalworks, supply orchestration, and multilingual ops for daring climate-tech teams.</h1>
+      <p>SunForge blends boutique design sensibility with serious production muscle. We choreograph casting, machining, stamping, coatings, and logistics so your product feels crafted and your timelines stay sharp.</p>
+      <div class="cta-group">
+        <button class="cta cta-primary">Plan a project</button>
+        <button class="cta cta-secondary">Meet the network</button>
       </div>
     </div>
-  </section>
-
-  <section id="industries" class="alt-bg">
-    <h2 class="section-heading">Industries We Support</h2>
-    <p class="section-sub">Clean energy and high-precision hardware companies lean on SunForge for resilient production.</p>
-    <div class="grid four">
-      <div class="card">
-        <h3>Renewable Energy</h3>
-        <p>Solar, wind, and storage hardware backed by precision metal parts, finishing, and certifications to keep pilot builds and scale timelines on track.</p>
-      </div>
-      <div class="card">
-        <h3>Automotive & e-Mobility</h3>
-        <p>Structural, drivetrain, and charging components with Tier 1/2 alignment, traceability, and PPAP-ready data packages.</p>
-      </div>
-      <div class="card">
-        <h3>End-Customer Brands</h3>
-        <p>Premium enclosures, hardware kits, and retail-ready packaging with flexible capacity for seasonal demand swings.</p>
-      </div>
-      <div class="card">
-        <h3>High-Precision / Emerging Tech</h3>
-        <p>Robotics, aerospace, and instrumentation teams tap casting, forging, and machining partners for tight tolerances and rapid iterations.</p>
-      </div>
+    <div class="hero-visual">
+      <div class="orb"></div>
+      <div class="chip c1">New energy • battery enclosures • EV charge hardware</div>
+      <div class="chip c2">Casting → Assembly → Packaging</div>
     </div>
   </section>
 
   <section id="services">
-    <h2 class="section-heading">Capabilities & Services</h2>
-    <p class="section-sub">A single network that spans metal manufacturing, assembly, and logistics integration.</p>
+    <div class="pill">Capabilities</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:2.4rem;margin-bottom:16px;">From sketchbook to shipment, with style.</h2>
+    <p style="max-width:620px;margin-bottom:50px;">We pair precision factories with a creative operations team so every part arrives with the right finish, story, and documentation.</p>
     <div class="grid three">
-      <div class="card">
-        <h3>Manufacturing Core</h3>
-        <p>Casting, forging, CNC machining, stamping, laser cutting, and surface finishing managed under one roof.</p>
+      <div class="feature-card">
+        <h3>Design-friendly manufacturing</h3>
+        <p>Casting, forging, CNC, and laser work tuned for expressive housings, structural frames, and statement hardware.</p>
       </div>
-      <div class="card">
-        <h3>Assembly & Packaging</h3>
-        <p>Hardware kits, sub-assemblies, coatings, and retail-ready packaging with QC gates and labeling.</p>
+      <div class="feature-card">
+        <h3>Coatings & finishing atelier</h3>
+        <p>Powder, anodizing, custom textures, and packaging kits that look as good as your renders.</p>
       </div>
-      <div class="card">
-        <h3>Program Management</h3>
-        <p>Supplier onboarding, compliance documentation, bilingual communication, and logistics orchestration.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="process" class="alt-bg">
-    <h2 class="section-heading">How We Work</h2>
-    <div class="process-steps">
-      <div class="card">
-        <h3>Discover & Align</h3>
-        <p>Capture requirements, regulatory needs, and success metrics with your product and operations leads.</p>
-      </div>
-      <div class="card">
-        <h3>Activate the Network</h3>
-        <p>Brief the right factories, align tooling and sample plans, and close the loop with multilingual updates.</p>
-      </div>
-      <div class="card">
-        <h3>Launch & Scale</h3>
-        <p>Runbooks, documentation, shipment schedules, and continuous improvement keep production predictable.</p>
+      <div class="feature-card">
+        <h3>Bespoke ops & storytelling</h3>
+        <p>Multilingual project leads, production diaries, and logistics choreography that keep founders, designers, and factories in rhythm.</p>
       </div>
     </div>
   </section>
 
-  <section id="about">
-    <h2 class="section-heading">About SunForge</h2>
-    <p class="section-sub">SunForge MFG Networks unites a trusted alliance of specialized factories across Asia and North America. We integrate coatings, assembly, packaging, and delivery to provide a one-stop manufacturing experience for next-gen hardware teams.</p>
-  </section>
-
-  <section id="contact" class="alt-bg">
-    <h2 class="section-heading">Ready to build faster?</h2>
-    <p class="section-sub">Tell us about your program and we’ll connect the right operations lead within 24 hours.</p>
-    <div class="cta-group">
-      <button class="cta-primary">Talk to Us</button>
-      <button class="cta-secondary">hello@sunforge-mfg.com</button>
+  <section id="industries">
+    <div class="industries">
+      <div class="pill">Industries</div>
+      <h2 style="font-family:'Fraunces',serif;font-size:2.3rem;margin-bottom:28px;">We obsess over clean energy + high-craft hardware.</h2>
+      <div class="industry-list">
+        <div class="industry-item">
+          <span>Solar / Storage</span>
+          <strong>Renewable Energy</strong>
+          <p>Elegant battery shells, inverter frames, and solar structures that survive the field and own the showroom.</p>
+        </div>
+        <div class="industry-item">
+          <span>EV / Mobility</span>
+          <strong>Automotive & Charging</strong>
+          <p>Chargers, drive components, and interior metal with PPAP discipline and boutique finish options.</p>
+        </div>
+        <div class="industry-item">
+          <span>Pro / Prosumer</span>
+          <strong>End-Customer Product Brands</strong>
+          <p>Premium enclosures, sculpted brackets, and retail-ready kits with playful color blocking.</p>
+        </div>
+        <div class="industry-item">
+          <span>Robotics / Aerospace</span>
+          <strong>High-Precision Tech</strong>
+          <p>Tight-tolerance machined parts, fixtures, and instrumentation frames with rapid iteration loops.</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    © <span id="year"></span> SunForge MFG Networks · <a href="mailto:hello@sunforge-mfg.com">hello@sunforge-mfg.com</a>
-  </footer>
+  <section>
+    <div class="pill">Crew</div>
+    <h2 style="font-family:'Fraunces',serif;font-size:2.3rem;margin-bottom:20px;">Global factories, one design-forward voice.</h2>
+    <p style="max-width:620px;margin-bottom:40px;">We operate like your in-house creative ops arm—coordinating Asia + North America partners, translating specs, and keeping every shipment on vibe.</p>
+    <div class="grid three">
+      <div class="feature-card" style="background:var(--mint);">
+        <h3 style="color:#064230;">12 Partner Hubs</h3>
+        <p>Audit-proven factories for casting, machining, stamping, and finishing.</p>
+      </div>
+      <div class="feature-card" style="background:#ffe3ef;">
+        <h3 style="color:#6b123f;">Multilingual PMs</h3>
+        <p>Ops leads fluent in English / Mandarin / Cantonese bridging designers and production.</p>
+      </div>
+      <div class="feature-card" style="background:var(--violet); color:#120e2c;">
+        <h3>Story-driven reporting</h3>
+        <p>Production diaries, photo drops, and logistics snapshots that actually feel crafted.</p>
+      </div>
+    </div>
+  </section>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <section id="contact">
+    <div class="contact">
+      <div class="pill" style="justify-content:center;">Contact</div>
+      <h2 style="font-family:'Fraunces',serif;font-size:2.5rem;margin-bottom:18px;">Let’s craft your next hardware chapter.</h2>
+      <p style="max-width:560px;margin:0 auto 32px;">Tell us about your product, your dream finish, and your launch window. We’ll spin up a mini dossier with factories, schedules, and moodboards.</p>
+      <div class="cta-group" style="justify-content:center;">
+        <button class="cta cta-primary">hello@sunforge-mfg.com</button>
+        <button class="cta cta-secondary">Book a call</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>© <span id="year"></span> SunForge Collective — Crafted supply for brave energy brands.</footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
 </body>
 </html>
